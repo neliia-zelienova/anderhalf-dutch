@@ -1,0 +1,10 @@
+nodeVersion: "24.13.1"
+saveExact: true
+packages:
+  - "apps/*"
+  - "packages/*"
+allowBuilds:
+  esbuild: true
+  '@prisma/engines': false
+  prisma: false
+  workerd: false
