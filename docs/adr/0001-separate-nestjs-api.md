@@ -3,6 +3,7 @@ The app has a web UI, but the API will also serve an MCP server and maybe a mobi
 
 # Decision
 Build the API as a separate NestJS service; the UI stays in Next.js.
+Turborepo is used on top of pnpm workspaces for task orchestration and caching
 
 # Alternatives
 Next.js only (Route Handlers). Rejected: logic would be spread across route files, no built-in DI, guards or cron.

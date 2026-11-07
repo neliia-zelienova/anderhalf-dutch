@@ -1,0 +1,3 @@
+- own word -> create user's own, not shared globally 
+- user needs to learn not only words, but also phrases
+- add word globally from user with AI check 
