@@ -1,0 +1,150 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "./generated"
+  previewFeatures = ["partialIndexes"]
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Language {
+  en
+  uk
+  it
+  es
+  de
+  pl
+  da
+  fi
+}
+
+enum PartOfSpeech {
+  noun
+  verb
+  adjective
+  adverb
+  pronoun
+  preposition
+  conjunction
+  interjection
+  numeral
+}
+
+enum Article {
+  de
+  het
+  none
+}
+
+enum ScheduleStatus {
+  review
+  new
+  learning
+}
+
+enum WordStatus {
+  new
+  learning
+  review
+  relearning
+}
+
+model User {
+  id               String     @id @default(uuid())
+  email            String     @unique
+  username         String?
+  name             String?
+  createdAt        DateTime   @default(now())
+  updatedAt        DateTime   @updatedAt
+  language         Language
+  words            UserWord[]
+  desiredRetention Float      @default(0.9)
+  wordsOwned       Word[]
+}
+
+model Word {
+  id           String            @id @default(uuid())
+  title        String
+  createdAt    DateTime          @default(now())
+  updatedAt    DateTime          @updatedAt
+  article      Article           @default(none)
+  partOfSpeech PartOfSpeech
+  userWords    UserWord[]
+  translations WordTranslation[]
+  archivedAt   DateTime?
+  ownerId      String?
+  owner        User?     @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+
+  @@unique([title, partOfSpeech, article], name: "unique_word", where: raw("\"ownerId\" IS NULL"))
+  @@unique([title, partOfSpeech, article, ownerId], name: "unique_user_word", where: raw("\"ownerId\" IS NOT NULL"))
+  @@index([ownerId])
+}
+
+model WordTranslation {
+  id          String   @id @default(uuid())
+  wordId      String
+  translation String
+  language    Language
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  word        Word     @relation(fields: [wordId], references: [id], onDelete: Cascade)
+
+  @@unique([wordId, language])
+}
+
+model UserWord {
+  id             String         @id @default(uuid())
+  userId         String
+  wordId         String
+  example        String?
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+  // Spaced repetition metadata
+  stabilityFast  Float
+  stability      Float
+  difficulty     Float
+  dueAt          DateTime
+  lastReviewAt   DateTime?
+  reps           Int
+  lapses         Int
+  scheduledDays  Int
+  learningStep   Int
+  state          WordStatus     @default(new)
+  scheduleStatus ScheduleStatus @default(new)
+  user           User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  word           Word           @relation(fields: [wordId], references: [id])
+  reviewLogs     ReviewLog[]
+
+  @@unique([userId, wordId])
+  @@index([userId, dueAt])
+}
+
+enum Grade {
+  again
+  hard
+  good
+  easy
+}
+
+model ReviewLog {
+  id             String         @id @default(uuid())
+  userWordId     String
+  stabilityFast  Float
+  stability      Float
+  difficulty     Float
+  dueAt          DateTime
+  lastReviewAt   DateTime?
+  scheduledDays  Int
+  learningStep   Int
+  reviewTime     DateTime
+  state          WordStatus
+  scheduleStatus ScheduleStatus
+  rating         Grade
+  userWord       UserWord       @relation(fields: [userWordId], references: [id], onDelete: Cascade)
+}

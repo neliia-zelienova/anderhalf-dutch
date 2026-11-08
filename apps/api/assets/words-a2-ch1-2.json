@@ -1,0 +1,1739 @@
+[
+  {
+    "title": "pubquiz",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "паб-квіз",
+      "en": "pub quiz"
+    }
+  },
+  {
+    "title": "team",
+    "article": "het",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "команда",
+      "en": "team"
+    }
+  },
+  {
+    "title": "top",
+    "article": "none",
+    "partOfSpeech": "interjection",
+    "translations": {
+      "uk": "чудово, супер",
+      "en": "great, top"
+    }
+  },
+  {
+    "title": "pizza",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "піца",
+      "en": "pizza"
+    }
+  },
+  {
+    "title": "calorie",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "калорія",
+      "en": "calorie"
+    }
+  },
+  {
+    "title": "intensief",
+    "article": "none",
+    "partOfSpeech": "adjective",
+    "translations": {
+      "uk": "інтенсивний",
+      "en": "intensive"
+    }
+  },
+  {
+    "title": "inclusief",
+    "article": "none",
+    "partOfSpeech": "adverb",
+    "translations": {
+      "uk": "включно",
+      "en": "including, inclusive"
+    }
+  },
+  {
+    "title": "maandelijks",
+    "article": "none",
+    "partOfSpeech": "adjective",
+    "translations": {
+      "uk": "щомісячний",
+      "en": "monthly"
+    }
+  },
+  {
+    "title": "zich aanmelden",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "записатися, зареєструватися",
+      "en": "to sign up (for)"
+    }
+  },
+  {
+    "title": "regel",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "правило",
+      "en": "rule"
+    }
+  },
+  {
+    "title": "niveau",
+    "article": "het",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "рівень",
+      "en": "level"
+    }
+  },
+  {
+    "title": "opleveren",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "давати, приносити (результат)",
+      "en": "to count for, to yield"
+    }
+  },
+  {
+    "title": "verbieden",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "забороняти",
+      "en": "to forbid"
+    }
+  },
+  {
+    "title": "opzoeken",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "шукати (інформацію)",
+      "en": "to look up"
+    }
+  },
+  {
+    "title": "verzoek",
+    "article": "het",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "прохання",
+      "en": "request"
+    }
+  },
+  {
+    "title": "gillen",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "верещати, кричати",
+      "en": "to scream, to yell"
+    }
+  },
+  {
+    "title": "ronde",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "раунд",
+      "en": "round"
+    }
+  },
+  {
+    "title": "onderwerp",
+    "article": "het",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "тема",
+      "en": "topic"
+    }
+  },
+  {
+    "title": "voeding",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "харчування",
+      "en": "food, nutrition"
+    }
+  },
+  {
+    "title": "geneeskundestudent",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "студент-медик",
+      "en": "medical student"
+    }
+  },
+  {
+    "title": "voedingsdeskundige",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "дієтолог",
+      "en": "nutritionist"
+    }
+  },
+  {
+    "title": "sportliefhebber",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "любитель спорту",
+      "en": "sports enthusiast"
+    }
+  },
+  {
+    "title": "liefhebber",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "любитель, шанувальник",
+      "en": "lover (of)"
+    }
+  },
+  {
+    "title": "kennis",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "знання",
+      "en": "knowledge, expertise"
+    }
+  },
+  {
+    "title": "volwassene",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "дорослий",
+      "en": "adult"
+    }
+  },
+  {
+    "title": "gemiddeld",
+    "article": "none",
+    "partOfSpeech": "adjective",
+    "translations": {
+      "uk": "середній, у середньому",
+      "en": "(on) average"
+    }
+  },
+  {
+    "title": "zacht",
+    "article": "none",
+    "partOfSpeech": "adjective",
+    "translations": {
+      "uk": "тихий, м'який",
+      "en": "quiet, soft"
+    }
+  },
+  {
+    "title": "twijfelen",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "сумніватися, вагатися",
+      "en": "to be unsure, to doubt"
+    }
+  },
+  {
+    "title": "geheugen",
+    "article": "het",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "пам'ять",
+      "en": "memory"
+    }
+  },
+  {
+    "title": "afhangen",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "залежати (від)",
+      "en": "to depend on"
+    }
+  },
+  {
+    "title": "lengte",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "зріст; довжина",
+      "en": "height; length"
+    }
+  },
+  {
+    "title": "geslacht",
+    "article": "het",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "стать",
+      "en": "sex"
+    }
+  },
+  {
+    "title": "richtlijn",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "рекомендація, настанова",
+      "en": "guideline"
+    }
+  },
+  {
+    "title": "dom",
+    "article": "none",
+    "partOfSpeech": "adjective",
+    "translations": {
+      "uk": "дурний",
+      "en": "stupid"
+    }
+  },
+  {
+    "title": "jezelf",
+    "article": "none",
+    "partOfSpeech": "pronoun",
+    "translations": {
+      "uk": "себе (ти сам)",
+      "en": "yourself"
+    }
+  },
+  {
+    "title": "verwennen",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "балувати",
+      "en": "to spoil (someone)"
+    }
+  },
+  {
+    "title": "frisdrank",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "газований напій",
+      "en": "soft drink"
+    }
+  },
+  {
+    "title": "bewegen",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "рухатися, займатися фізактивністю",
+      "en": "to move, to exercise"
+    }
+  },
+  {
+    "title": "verbranden",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "спалювати",
+      "en": "to burn"
+    }
+  },
+  {
+    "title": "stevig",
+    "article": "none",
+    "partOfSpeech": "adjective",
+    "translations": {
+      "uk": "міцний; швидкий (темп)",
+      "en": "sturdy; at a fast pace"
+    }
+  },
+  {
+    "title": "bewegingsapp",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "застосунок для фізактивності",
+      "en": "exercise app"
+    }
+  },
+  {
+    "title": "beweging",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "рух",
+      "en": "movement, exercise"
+    }
+  },
+  {
+    "title": "matig",
+    "article": "none",
+    "partOfSpeech": "adjective",
+    "translations": {
+      "uk": "помірний",
+      "en": "moderate"
+    }
+  },
+  {
+    "title": "lichaamsbeweging",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "фізичні вправи",
+      "en": "physical exercise"
+    }
+  },
+  {
+    "title": "lichaam",
+    "article": "het",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "тіло",
+      "en": "body"
+    }
+  },
+  {
+    "title": "kauwen",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "жувати",
+      "en": "to chew"
+    }
+  },
+  {
+    "title": "chips",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "чипси",
+      "en": "crisps"
+    }
+  },
+  {
+    "title": "plek",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "місце",
+      "en": "place, spot"
+    }
+  },
+  {
+    "title": "elders",
+    "article": "none",
+    "partOfSpeech": "adverb",
+    "translations": {
+      "uk": "деінде",
+      "en": "elsewhere"
+    }
+  },
+  {
+    "title": "blijken",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "виявлятися",
+      "en": "to turn out, to show"
+    }
+  },
+  {
+    "title": "gemeenschappelijk",
+    "article": "none",
+    "partOfSpeech": "adjective",
+    "translations": {
+      "uk": "спільний",
+      "en": "common"
+    }
+  },
+  {
+    "title": "kenmerk",
+    "article": "het",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "характерна риса",
+      "en": "characteristic"
+    }
+  },
+  {
+    "title": "levensstijl",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "спосіб життя",
+      "en": "lifestyle"
+    }
+  },
+  {
+    "title": "stijl",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "стиль",
+      "en": "style"
+    }
+  },
+  {
+    "title": "noemen",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "називати",
+      "en": "to name"
+    }
+  },
+  {
+    "title": "natuurlijk",
+    "article": "none",
+    "partOfSpeech": "adverb",
+    "translations": {
+      "uk": "звісно; природно",
+      "en": "of course; naturally"
+    }
+  },
+  {
+    "title": "luidruchtig",
+    "article": "none",
+    "partOfSpeech": "adjective",
+    "translations": {
+      "uk": "галасливий",
+      "en": "noisy"
+    }
+  },
+  {
+    "title": "aandacht",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "увага",
+      "en": "attention"
+    }
+  },
+  {
+    "title": "creatief",
+    "article": "none",
+    "partOfSpeech": "adjective",
+    "translations": {
+      "uk": "творчий",
+      "en": "creative"
+    }
+  },
+  {
+    "title": "gitaar",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "гітара",
+      "en": "guitar"
+    }
+  },
+  {
+    "title": "piano",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "піаніно",
+      "en": "piano"
+    }
+  },
+  {
+    "title": "orkest",
+    "article": "het",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "оркестр",
+      "en": "orchestra"
+    }
+  },
+  {
+    "title": "publiceren",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "публікувати",
+      "en": "to publish"
+    }
+  },
+  {
+    "title": "universitair",
+    "article": "none",
+    "partOfSpeech": "adjective",
+    "translations": {
+      "uk": "університетський",
+      "en": "university"
+    }
+  },
+  {
+    "title": "medisch",
+    "article": "none",
+    "partOfSpeech": "adjective",
+    "translations": {
+      "uk": "медичний",
+      "en": "medical"
+    }
+  },
+  {
+    "title": "telefoon",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "телефон",
+      "en": "telephone"
+    }
+  },
+  {
+    "title": "leeftijd",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "вік",
+      "en": "age"
+    }
+  },
+  {
+    "title": "vierdejaarsstudent",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "студент четвертого курсу",
+      "en": "fourth-year student"
+    }
+  },
+  {
+    "title": "rechten",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "право (навчальна дисципліна)",
+      "en": "law (field of study)"
+    }
+  },
+  {
+    "title": "grappig",
+    "article": "none",
+    "partOfSpeech": "adjective",
+    "translations": {
+      "uk": "смішний",
+      "en": "funny"
+    }
+  },
+  {
+    "title": "vernoemen",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "називати на честь",
+      "en": "to name after"
+    }
+  },
+  {
+    "title": "verwarren",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "плутати",
+      "en": "to confuse"
+    }
+  },
+  {
+    "title": "tekenen",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "малювати",
+      "en": "to draw"
+    }
+  },
+  {
+    "title": "schilderen",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "малювати фарбами",
+      "en": "to paint"
+    }
+  },
+  {
+    "title": "muzikaal",
+    "article": "none",
+    "partOfSpeech": "adjective",
+    "translations": {
+      "uk": "музикальний",
+      "en": "musical"
+    }
+  },
+  {
+    "title": "zingen",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "співати",
+      "en": "to sing"
+    }
+  },
+  {
+    "title": "benieuwd",
+    "article": "none",
+    "partOfSpeech": "adjective",
+    "translations": {
+      "uk": "зацікавлений (дізнатися)",
+      "en": "curious (about)"
+    }
+  },
+  {
+    "title": "precies",
+    "article": "none",
+    "partOfSpeech": "adverb",
+    "translations": {
+      "uk": "точно",
+      "en": "exactly"
+    }
+  },
+  {
+    "title": "beer",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "ведмідь",
+      "en": "bear"
+    }
+  },
+  {
+    "title": "beest",
+    "article": "het",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "тварина, звір",
+      "en": "animal, beast"
+    }
+  },
+  {
+    "title": "sterk",
+    "article": "none",
+    "partOfSpeech": "adjective",
+    "translations": {
+      "uk": "сильний",
+      "en": "strong"
+    }
+  },
+  {
+    "title": "gevaarlijk",
+    "article": "none",
+    "partOfSpeech": "adjective",
+    "translations": {
+      "uk": "небезпечний",
+      "en": "dangerous"
+    }
+  },
+  {
+    "title": "vlinder",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "метелик",
+      "en": "butterfly"
+    }
+  },
+  {
+    "title": "paard",
+    "article": "het",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "кінь",
+      "en": "horse"
+    }
+  },
+  {
+    "title": "vliegen",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "літати",
+      "en": "to fly"
+    }
+  },
+  {
+    "title": "indrukwekkend",
+    "article": "none",
+    "partOfSpeech": "adjective",
+    "translations": {
+      "uk": "вражаючий",
+      "en": "impressive"
+    }
+  },
+  {
+    "title": "merken",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "помічати",
+      "en": "to notice"
+    }
+  },
+  {
+    "title": "trots",
+    "article": "none",
+    "partOfSpeech": "adjective",
+    "translations": {
+      "uk": "гордий",
+      "en": "proud"
+    }
+  },
+  {
+    "title": "held",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "герой",
+      "en": "hero"
+    }
+  },
+  {
+    "title": "zorgen",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "піклуватися (про); забезпечувати",
+      "en": "to take care of"
+    }
+  },
+  {
+    "title": "ernstig",
+    "article": "none",
+    "partOfSpeech": "adjective",
+    "translations": {
+      "uk": "серйозний",
+      "en": "serious"
+    }
+  },
+  {
+    "title": "vrolijk",
+    "article": "none",
+    "partOfSpeech": "adjective",
+    "translations": {
+      "uk": "веселий, життєрадісний",
+      "en": "cheerful, happy"
+    }
+  },
+  {
+    "title": "vooral",
+    "article": "none",
+    "partOfSpeech": "adverb",
+    "translations": {
+      "uk": "особливо",
+      "en": "especially"
+    }
+  },
+  {
+    "title": "oplossing",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "рішення (проблеми)",
+      "en": "solution"
+    }
+  },
+  {
+    "title": "lawaai",
+    "article": "het",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "шум",
+      "en": "noise"
+    }
+  },
+  {
+    "title": "schreeuwen",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "кричати",
+      "en": "to shout"
+    }
+  },
+  {
+    "title": "tekening",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "малюнок",
+      "en": "drawing"
+    }
+  },
+  {
+    "title": "tijdschrift",
+    "article": "het",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "журнал",
+      "en": "magazine"
+    }
+  },
+  {
+    "title": "sturen",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "надсилати",
+      "en": "to send"
+    }
+  },
+  {
+    "title": "sommige",
+    "article": "none",
+    "partOfSpeech": "pronoun",
+    "translations": {
+      "uk": "деякі",
+      "en": "some"
+    }
+  },
+  {
+    "title": "zelfs",
+    "article": "none",
+    "partOfSpeech": "adverb",
+    "translations": {
+      "uk": "навіть",
+      "en": "even"
+    }
+  },
+  {
+    "title": "bescheiden",
+    "article": "none",
+    "partOfSpeech": "adjective",
+    "translations": {
+      "uk": "скромний",
+      "en": "modest"
+    }
+  },
+  {
+    "title": "bezit",
+    "article": "het",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "власність, надбання",
+      "en": "possession"
+    }
+  },
+  {
+    "title": "spullen",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "речі",
+      "en": "things"
+    }
+  },
+  {
+    "title": "fluisteren",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "шепотіти",
+      "en": "to whisper"
+    }
+  },
+  {
+    "title": "gevoel",
+    "article": "het",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "почуття, відчуття",
+      "en": "feeling"
+    }
+  },
+  {
+    "title": "droom",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "мрія; сон",
+      "en": "dream"
+    }
+  },
+  {
+    "title": "wereld",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "світ",
+      "en": "world"
+    }
+  },
+  {
+    "title": "persoonlijk",
+    "article": "none",
+    "partOfSpeech": "adjective",
+    "translations": {
+      "uk": "особистий",
+      "en": "personal"
+    }
+  },
+  {
+    "title": "bereiken",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "досягати; зв'язатися",
+      "en": "to achieve; to reach"
+    }
+  },
+  {
+    "title": "ziekenhuis",
+    "article": "het",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "лікарня",
+      "en": "hospital"
+    }
+  },
+  {
+    "title": "uitkomen",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "здійснитися",
+      "en": "to come true"
+    }
+  },
+  {
+    "title": "eigenschap",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "риса, якість",
+      "en": "characteristic"
+    }
+  },
+  {
+    "title": "geduldig",
+    "article": "none",
+    "partOfSpeech": "adjective",
+    "translations": {
+      "uk": "терплячий",
+      "en": "patient"
+    }
+  },
+  {
+    "title": "mezelf",
+    "article": "none",
+    "partOfSpeech": "pronoun",
+    "translations": {
+      "uk": "себе (я сам)",
+      "en": "myself"
+    }
+  },
+  {
+    "title": "wetenschappelijk",
+    "article": "none",
+    "partOfSpeech": "adjective",
+    "translations": {
+      "uk": "науковий",
+      "en": "scientific"
+    }
+  },
+  {
+    "title": "onderzoek",
+    "article": "het",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "дослідження",
+      "en": "research"
+    }
+  },
+  {
+    "title": "platteland",
+    "article": "het",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "сільська місцевість",
+      "en": "countryside"
+    }
+  },
+  {
+    "title": "voorlopig",
+    "article": "none",
+    "partOfSpeech": "adverb",
+    "translations": {
+      "uk": "поки що",
+      "en": "for now"
+    }
+  },
+  {
+    "title": "voornemen",
+    "article": "het",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "намір",
+      "en": "intention"
+    }
+  },
+  {
+    "title": "zich ergeren",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "дратуватися (через)",
+      "en": "to get annoyed (by)"
+    }
+  },
+  {
+    "title": "doelpunt",
+    "article": "het",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "гол",
+      "en": "goal"
+    }
+  },
+  {
+    "title": "krant",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "газета",
+      "en": "newspaper"
+    }
+  },
+  {
+    "title": "fotograaf",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "фотограф",
+      "en": "photographer"
+    }
+  },
+  {
+    "title": "presentator",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "ведучий",
+      "en": "presenter"
+    }
+  },
+  {
+    "title": "zich realiseren",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "усвідомлювати",
+      "en": "to realise"
+    }
+  },
+  {
+    "title": "roots",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "коріння (походження)",
+      "en": "roots"
+    }
+  },
+  {
+    "title": "adopteren",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "усиновлювати",
+      "en": "to adopt"
+    }
+  },
+  {
+    "title": "stimuleren",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "заохочувати",
+      "en": "to encourage, to stimulate"
+    }
+  },
+  {
+    "title": "dierbaar",
+    "article": "none",
+    "partOfSpeech": "adjective",
+    "translations": {
+      "uk": "дорогий (серцю)",
+      "en": "dear, precious"
+    }
+  },
+  {
+    "title": "stilstaan",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "замислитися (над); зупинитися",
+      "en": "to stop and think about; to stand still"
+    }
+  },
+  {
+    "title": "meemaken",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "переживати, зазнати",
+      "en": "to experience"
+    }
+  },
+  {
+    "title": "uitkiezen",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "вибирати",
+      "en": "to choose"
+    }
+  },
+  {
+    "title": "daarvan",
+    "article": "none",
+    "partOfSpeech": "adverb",
+    "translations": {
+      "uk": "з цього, про це",
+      "en": "of this"
+    }
+  },
+  {
+    "title": "geboorteland",
+    "article": "het",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "країна народження",
+      "en": "country of birth"
+    }
+  },
+  {
+    "title": "geboorte",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "народження",
+      "en": "birth"
+    }
+  },
+  {
+    "title": "herinnering",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "спогад",
+      "en": "memory (of)"
+    }
+  },
+  {
+    "title": "verwerken",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "вплітати; опрацьовувати",
+      "en": "to use in; to process"
+    }
+  },
+  {
+    "title": "beschilderen",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "розписувати",
+      "en": "to paint (a surface)"
+    }
+  },
+  {
+    "title": "meekrijgen",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "отримати з собою",
+      "en": "to be given (to take along)"
+    }
+  },
+  {
+    "title": "gouden",
+    "article": "none",
+    "partOfSpeech": "adjective",
+    "translations": {
+      "uk": "золотий",
+      "en": "golden"
+    }
+  },
+  {
+    "title": "rammelaar",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "брязкальце",
+      "en": "rattle"
+    }
+  },
+  {
+    "title": "horloge",
+    "article": "het",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "наручний годинник",
+      "en": "watch"
+    }
+  },
+  {
+    "title": "dankbaar",
+    "article": "none",
+    "partOfSpeech": "adjective",
+    "translations": {
+      "uk": "вдячний",
+      "en": "grateful"
+    }
+  },
+  {
+    "title": "rapper",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "репер",
+      "en": "rapper"
+    }
+  },
+  {
+    "title": "project",
+    "article": "het",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "проєкт",
+      "en": "project"
+    }
+  },
+  {
+    "title": "enthousiast",
+    "article": "none",
+    "partOfSpeech": "adjective",
+    "translations": {
+      "uk": "захоплений",
+      "en": "enthusiastic"
+    }
+  },
+  {
+    "title": "zelfreflectie",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "саморефлексія",
+      "en": "self-reflection"
+    }
+  },
+  {
+    "title": "show",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "шоу",
+      "en": "show"
+    }
+  },
+  {
+    "title": "hangen",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "висіти; вішати",
+      "en": "to hang"
+    }
+  },
+  {
+    "title": "schijf",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "диск",
+      "en": "disk"
+    }
+  },
+  {
+    "title": "bewaren",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "зберігати",
+      "en": "to keep"
+    }
+  },
+  {
+    "title": "uitverkopen",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "розпродати",
+      "en": "to sell out"
+    }
+  },
+  {
+    "title": "oogziekte",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "хвороба очей",
+      "en": "eye disease"
+    }
+  },
+  {
+    "title": "ziekte",
+    "article": "de",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "хвороба",
+      "en": "disease, illness"
+    }
+  },
+  {
+    "title": "zicht",
+    "article": "het",
+    "partOfSpeech": "noun",
+    "translations": {
+      "uk": "зір",
+      "en": "vision"
+    }
+  },
+  {
+    "title": "en",
+    "article": "none",
+    "partOfSpeech": "conjunction",
+    "translations": {
+      "uk": "і",
+      "en": "and"
+    }
+  },
+  {
+    "title": "want",
+    "article": "none",
+    "partOfSpeech": "conjunction",
+    "translations": {
+      "uk": "бо",
+      "en": "because, for"
+    }
+  },
+  {
+    "title": "maar",
+    "article": "none",
+    "partOfSpeech": "conjunction",
+    "translations": {
+      "uk": "але",
+      "en": "but"
+    }
+  },
+  {
+    "title": "dus",
+    "article": "none",
+    "partOfSpeech": "conjunction",
+    "translations": {
+      "uk": "тож",
+      "en": "so"
+    }
+  },
+  {
+    "title": "of",
+    "article": "none",
+    "partOfSpeech": "conjunction",
+    "translations": {
+      "uk": "або",
+      "en": "or"
+    }
+  },
+  {
+    "title": "omdat",
+    "article": "none",
+    "partOfSpeech": "conjunction",
+    "translations": {
+      "uk": "тому що",
+      "en": "because"
+    }
+  },
+  {
+    "title": "als",
+    "article": "none",
+    "partOfSpeech": "conjunction",
+    "translations": {
+      "uk": "якщо; коли",
+      "en": "if; when"
+    }
+  },
+  {
+    "title": "toen",
+    "article": "none",
+    "partOfSpeech": "conjunction",
+    "translations": {
+      "uk": "коли (у минулому)",
+      "en": "when (past)"
+    }
+  },
+  {
+    "title": "voordat",
+    "article": "none",
+    "partOfSpeech": "conjunction",
+    "translations": {
+      "uk": "перед тим як",
+      "en": "before"
+    }
+  },
+  {
+    "title": "nadat",
+    "article": "none",
+    "partOfSpeech": "conjunction",
+    "translations": {
+      "uk": "після того як",
+      "en": "after"
+    }
+  },
+  {
+    "title": "totdat",
+    "article": "none",
+    "partOfSpeech": "conjunction",
+    "translations": {
+      "uk": "доки не",
+      "en": "until"
+    }
+  },
+  {
+    "title": "terwijl",
+    "article": "none",
+    "partOfSpeech": "conjunction",
+    "translations": {
+      "uk": "поки, тоді як",
+      "en": "while"
+    }
+  },
+  {
+    "title": "zodat",
+    "article": "none",
+    "partOfSpeech": "conjunction",
+    "translations": {
+      "uk": "щоб, так що",
+      "en": "so that"
+    }
+  },
+  {
+    "title": "zodra",
+    "article": "none",
+    "partOfSpeech": "conjunction",
+    "translations": {
+      "uk": "щойно, як тільки",
+      "en": "as soon as"
+    }
+  },
+  {
+    "title": "hoewel",
+    "article": "none",
+    "partOfSpeech": "conjunction",
+    "translations": {
+      "uk": "хоча",
+      "en": "although"
+    }
+  },
+  {
+    "title": "denken",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "думати",
+      "en": "to think"
+    }
+  },
+  {
+    "title": "doen",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "робити",
+      "en": "to do"
+    }
+  },
+  {
+    "title": "dragen",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "носити",
+      "en": "to wear, to carry"
+    }
+  },
+  {
+    "title": "gaan",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "іти",
+      "en": "to go"
+    }
+  },
+  {
+    "title": "hebben",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "мати",
+      "en": "to have"
+    }
+  },
+  {
+    "title": "houden",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "тримати; любити (houden van)",
+      "en": "to hold; to love"
+    }
+  },
+  {
+    "title": "kiezen",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "вибирати",
+      "en": "to choose"
+    }
+  },
+  {
+    "title": "kijken",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "дивитися",
+      "en": "to look, to watch"
+    }
+  },
+  {
+    "title": "krijgen",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "отримувати",
+      "en": "to get, to receive"
+    }
+  },
+  {
+    "title": "kunnen",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "могти, вміти",
+      "en": "can, to be able to"
+    }
+  },
+  {
+    "title": "liggen",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "лежати",
+      "en": "to lie"
+    }
+  },
+  {
+    "title": "lijken",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "здаватися; бути схожим",
+      "en": "to seem; to resemble"
+    }
+  },
+  {
+    "title": "moeten",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "мусити",
+      "en": "must, to have to"
+    }
+  },
+  {
+    "title": "mogen",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "мати дозвіл",
+      "en": "may, to be allowed to"
+    }
+  },
+  {
+    "title": "staan",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "стояти",
+      "en": "to stand"
+    }
+  },
+  {
+    "title": "vinden",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "знаходити; вважати",
+      "en": "to find; to think"
+    }
+  },
+  {
+    "title": "weten",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "знати",
+      "en": "to know"
+    }
+  },
+  {
+    "title": "willen",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "хотіти",
+      "en": "to want"
+    }
+  },
+  {
+    "title": "zijn",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "бути",
+      "en": "to be"
+    }
+  },
+  {
+    "title": "zitten",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "сидіти",
+      "en": "to sit"
+    }
+  },
+  {
+    "title": "zoeken",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "шукати",
+      "en": "to search, to look for"
+    }
+  },
+  {
+    "title": "zullen",
+    "article": "none",
+    "partOfSpeech": "verb",
+    "translations": {
+      "uk": "будуть (допоміжне майбутнього часу)",
+      "en": "shall, will"
+    }
+  }
+]
