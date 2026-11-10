@@ -69,4 +69,4 @@ dist/
 .windsurf
 AGENTS.md
 CLAUDE.md
-prisma/generated
+**/src/generated
