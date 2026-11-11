@@ -43,7 +43,7 @@ import { join } from 'node:path';
           absoluteTtl: '14d', // signed out after 14 days, however active
           idleTtl: '3d', // or after 3 days without a request
         },
-        magicLink: { url: `${configService.get('APP_URL') ?? ''}/sign-in/magic` },
+        magicLink: { url: `${configService.getOrThrow('APP_URL')}/sign-in/magic` },
       }),
     }),
     UsersModule,

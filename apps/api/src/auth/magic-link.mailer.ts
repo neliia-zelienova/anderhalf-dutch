@@ -1,5 +1,5 @@
 
-import { ForbiddenException, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { AuthenticationRegistry, MagicLinkHandler, type MagicLink } from '@nestjs/authentication';
 import { Mailer, type Mailable } from '@nestjs/mail';
 import { UsersRepository } from '../users/users.repository.ts';
