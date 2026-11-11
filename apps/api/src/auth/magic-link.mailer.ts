@@ -2,7 +2,7 @@
 import { ForbiddenException, Injectable } from '@nestjs/common';
 import { AuthenticationRegistry, MagicLinkHandler, type MagicLink } from '@nestjs/authentication';
 import { Mailer, type Mailable } from '@nestjs/mail';
-import { UsersRepository } from '../users/users.repository.js';
+import { UsersRepository } from '../users/users.repository.ts';
 
 @Injectable()
 export class MagicLinkMail implements Mailable<MagicLink> {
@@ -37,11 +37,6 @@ export class MagicLinkMailer extends MagicLinkHandler {
     if (!user) {
       // Passwordless sign-up. Return null instead to refuse unknown addresses.
       return this.usersRepository.create(email, { emailVerified: true });
-    }
-    // A password account whose address nobody confirmed: whoever chose that
-    // password may not own the address. Resetting the password proves both.
-    if (!user.emailVerified) {
-      throw new ForbiddenException('Sign in with your password, or reset it');
     }
     return user;
   }

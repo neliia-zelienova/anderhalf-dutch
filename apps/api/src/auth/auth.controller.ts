@@ -2,7 +2,7 @@ import { CurrentUser, Public, SignInService } from "@nestjs/authentication";
 import { Controller } from "@nestjs/common/decorators/core/index.js";
 import { Post } from "@nestjs/common/decorators/http/index.js";
 import { HttpCode } from "@nestjs/common/decorators/http/index.js";
-import type { User } from '../users/users.ts';
+import type { User } from '@anderhalf/contracts/user';
 
 @Controller('auth')
 export class AuthController {

@@ -1,10 +1,9 @@
 
 import { Injectable } from '@nestjs/common';
-import { PrismaService } from '../prisma/prisma.service.js';
-import type { User } from './users.ts';
+import { PrismaService } from '../prisma/prisma.service.ts';
 import { User as UserRow } from '../generated/client.ts';
 import { Language } from '@anderhalf/contracts/word';
-import { UserRole } from '@anderhalf/contracts/user';
+import { User, UserRole } from '@anderhalf/contracts/user';
 
 @Injectable()
 export class UsersRepository {
@@ -37,23 +36,6 @@ export class UsersRepository {
       where: { email: normalize(email) }
     });
     return user ? toUser(user) : null;
-  }
-
-  async updateEmail(id: string, email: string): Promise<User | null> {
-    const user = await this.prismaService.user.findUnique({
-      where: { id }
-    });
-    if (!user) {
-      return null;
-    }
-    const updatedUser = await this.prismaService.user.update({
-      where: { id },
-      data: {
-        email: normalize(email),
-        emailVerified: false
-      }
-    });
-    return toUser(updatedUser);
   }
 
   /** Only if `email` is still the user's address: a link sent to an old one verifies nothing. */

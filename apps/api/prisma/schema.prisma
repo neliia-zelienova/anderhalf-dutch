@@ -74,7 +74,6 @@ model User {
   desiredRetention Float      @default(0.9)
   wordsOwned       Word[]
   sessions         Session[]
-  refreshTokens    RefreshToken[]
 }
 
 model Session {
@@ -89,20 +88,6 @@ model Session {
 
   @@index([userId])
 }
-
-model RefreshToken {
-  id        String   @id
-  familyId   String
-  userId    String
-  createdAt DateTime @default(now())
-  expiresAt DateTime
-  familyExpiresAt DateTime
-  usedAt      DateTime?
-  revoked     Boolean    @default(false)
-  claims      Json?
-  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  @@index([userId])
-} 
 
 model MagicLink {
   id            String   @id @default(uuid())

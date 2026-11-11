@@ -1,9 +1,8 @@
 
 import { Body, Controller, HttpCode, Post, UnauthorizedException } from '@nestjs/common';
 import { MagicLinkService, Public } from '@nestjs/authentication';
-import { EmailDto } from './dto/email.dto.js';
-import { minutes } from '@nestjs/throttler/dist/utilities.js';
-import { Throttle } from '@nestjs/throttler/dist/throttler.decorator.js';
+import { EmailDto } from './dto/email.dto.ts';
+import { minutes, Throttle } from '@nestjs/throttler';
 
 @Public()
 @Controller('auth/magic-link')
@@ -12,8 +11,9 @@ export class MagicLinkController {
 
   @Post()
   @HttpCode(202)
-  async request(@Body() body: EmailDto, @Body('redirectTo') redirectTo?: string) {
-    await this.magicLinkService.create(body.email, { redirectTo });
+  async request(@Body() { email }: EmailDto) {
+
+    await this.magicLinkService.create(email);
   }
 
   @Throttle({

@@ -1,7 +1,7 @@
 
 import { Injectable } from '@nestjs/common';
 import { AuthenticationRegistry, SessionCookieProvider, type SessionRecord } from '@nestjs/authentication';
-import type { User } from '../users/users.ts';
+import type { User } from '@anderhalf/contracts/user';
 import { UsersRepository } from '../users/users.repository.ts';
 
 @Injectable()

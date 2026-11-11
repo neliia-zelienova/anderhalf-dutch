@@ -1,11 +1,11 @@
-import { PrismaModule } from '../prisma/prisma.module.js';
+import { PrismaModule } from '../prisma/prisma.module.ts';
 import { Module } from '@nestjs/common';
-import { UsersModule } from '../users/users.module.js';
-import { SessionAuth } from './session-auth.provider.js';
-import { MagicLinkMailer } from './magic-link.mailer.js';
-import { MagicLinkController } from './magic-link.controller.js';
-import { PrismaAuthenticationStore } from './prisma-auth.js';
-import { AuthController } from './auth.controller.js';
+import { UsersModule } from '../users/users.module.ts';
+import { SessionAuth } from './session-auth.provider.ts';
+import { MagicLinkMailer } from './magic-link.mailer.ts';
+import { MagicLinkController } from './magic-link.controller.ts';
+import { PrismaAuthenticationStore } from './prisma-auth.ts';
+import { AuthController } from './auth.controller.ts';
 
 @Module({
   imports: [UsersModule, PrismaModule],

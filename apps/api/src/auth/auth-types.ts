@@ -1,5 +1,5 @@
 
-import type { User } from '../users/users.ts';
+import type { User } from '@anderhalf/contracts/user';
 
 declare module '@nestjs/authentication' {
   interface AuthenticationTypes {

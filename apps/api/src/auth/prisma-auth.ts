@@ -4,8 +4,6 @@ import {
   AuthenticationStorage,
   type MagicLinkRecord,
   type MagicLinkStore,
-  type RefreshTokenRecord,
-  type RefreshTokenStore,
   type SessionRecord,
   type SessionStore,
 } from '@nestjs/authentication';
@@ -20,7 +18,7 @@ import { Prisma } from '../generated/client.ts';
  */
 @Injectable()
 export class PrismaAuthenticationStore
-  implements SessionStore, RefreshTokenStore, MagicLinkStore
+  implements SessionStore, MagicLinkStore
 {
   /** Pending links and logins kept per table: anyone can create them. */
   protected readonly maxPending: number = 100_000;
@@ -31,7 +29,6 @@ export class PrismaAuthenticationStore
   ) {
     storage.registerSource({
       sessions: this,
-      refreshTokens: this,
       magicLinks: this,
     });
   }
@@ -77,63 +74,6 @@ export class PrismaAuthenticationStore
 
   async deleteUserSessions(userId: string): Promise<void> {
     await this.prismaService.session.deleteMany({ where: { userId } });
-  }
-
-  // Refresh tokens
-
-  async getRefreshToken(id: string): Promise<RefreshTokenRecord | undefined> {
-    const [row] = await this.prismaService.refreshToken.findMany({
-        where: { id }
-    })
-    if (!row) {
-      return undefined;
-    }
-    const { revoked: _, ...token } = row;
-    return withoutNulls(token) as RefreshTokenRecord;
-  }
-
-  async saveRefreshToken(record: RefreshTokenRecord): Promise<void> {
-    await this.prismaService.refreshToken.create({
-        data: {...record, claims: record.claims as Prisma.InputJsonObject},
-    })
-    await this.prismaService.refreshToken.deleteMany({
-        where: { familyExpiresAt: { lte: record.createdAt } }
-    })
-  }
-
-  async markRefreshTokenUsed(id: string, at: Date): Promise<boolean> {
-    // Conditional: of two refreshes with the same token, one updates the row.
-    const { count } = await this.prismaService.refreshToken.updateMany({
-        where: {
-            id,
-            usedAt: null,
-        },
-        data: {
-            usedAt: at,
-        }
-    })
-    return count === 1;
-  }
-
-  async revokeRefreshTokenFamily(familyId: string): Promise<void> {
-    await this.prismaService.refreshToken.updateMany({
-        where: { familyId },
-        data: { revoked: true }
-    });
-  }
-
-  async isRefreshTokenFamilyRevoked(familyId: string): Promise<boolean> {
-    const revoked = await this.prismaService.refreshToken.findFirst({
-        where: { familyId, revoked: true }
-    })
-    return !!revoked;
-  }
-
-  async revokeUserRefreshTokens(userId: string): Promise<void> {
-    await this.prismaService.refreshToken.updateMany({
-        where: { userId },
-        data: { revoked: true }
-    });
   }
 
   // Magic links

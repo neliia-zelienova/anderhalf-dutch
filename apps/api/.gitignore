@@ -70,3 +70,6 @@ dist/
 AGENTS.md
 CLAUDE.md
 **/src/generated
+
+skills-lock.json
+AGENTS.md
