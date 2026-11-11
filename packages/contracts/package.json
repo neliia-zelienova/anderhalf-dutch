@@ -9,6 +9,10 @@
     "./word": {
       "types": "./src/word.ts",
       "default": "./dist/word.js"
+    },
+    "./user": {
+      "types": "./src/user.ts",
+      "default": "./dist/user.js"
     }
   },
   "devDependencies": {

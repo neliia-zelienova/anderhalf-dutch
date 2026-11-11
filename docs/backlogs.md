@@ -1,3 +1,6 @@
 - own word -> create user's own, not shared globally 
 - user needs to learn not only words, but also phrases
 - add word globally from user with AI check 
+- does the magic link login should be bind to the browser (login CSRF)
+- email change functionality (with pendingEmail field)
+- ConfigModule.forRoot -> validate

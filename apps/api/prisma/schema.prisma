@@ -5,7 +5,7 @@
 
 generator client {
   provider = "prisma-client"
-  output   = "./generated"
+  output   = "../src/generated"
   previewFeatures = ["partialIndexes"]
 }
 
@@ -55,9 +55,16 @@ enum WordStatus {
   relearning
 }
 
+enum UserRole {
+  admin
+  user
+}
+
 model User {
   id               String     @id @default(uuid())
   email            String     @unique
+  emailVerified    Boolean    @default(false)
+  role             UserRole   @default(user)
   username         String?
   name             String?
   createdAt        DateTime   @default(now())
@@ -66,6 +73,28 @@ model User {
   words            UserWord[]
   desiredRetention Float      @default(0.9)
   wordsOwned       Word[]
+  sessions         Session[]
+}
+
+model Session {
+  id        String   @id
+  userId    String
+  createdAt DateTime @default(now())
+  expiresAt DateTime
+  lastActiveAt DateTime
+  metadata   Json?
+  mfa       Json?
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model MagicLink {
+  id            String   @id @default(uuid())
+  email         String
+  createdAt     DateTime @default(now())
+  expiresAt     DateTime @default(now())
+  redirectTo    String?
 }
 
 model Word {

@@ -1,7 +1,7 @@
 import "dotenv/config";
 import { Pool } from "pg";
 import { PrismaPg } from "@prisma/adapter-pg";
-import { Article, PartOfSpeech, Language, PrismaClient } from "./generated/client";
+import { Article, PartOfSpeech, Language, PrismaClient } from "../src/generated/client.ts";
 import seedData from "../assets/words-a2-ch1-2.json";
 
 const connectionString = `${process.env.DATABASE_URL}`;

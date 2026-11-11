@@ -69,4 +69,7 @@ dist/
 .windsurf
 AGENTS.md
 CLAUDE.md
-prisma/generated
+**/src/generated
+
+skills-lock.json
+AGENTS.md
