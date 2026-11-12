@@ -1,127 +1,57 @@
 
 import { Injectable } from '@nestjs/common';
-import {
-  AuthenticationStorage,
-  type MagicLinkRecord,
-  type MagicLinkStore,
-  type SessionRecord,
-  type SessionStore,
-} from '@nestjs/authentication';
 import { PrismaService } from '../prisma/prisma.service.ts';
-import { Prisma } from '../generated/client.ts';
+import { Prisma, MagicLink } from '../generated/client.ts';
 
-/**
- * Keeps sessions, refresh tokens, authenticators and pending links in
- * PostgreSQL, through Prisma. Every method that decides whether something
- * works once is a single conditional statement, so the guarantees hold with
- * any number of API instances.
- */
 @Injectable()
 export class PrismaAuthenticationStore
-  implements SessionStore, MagicLinkStore
 {
-  /** Pending links and logins kept per table: anyone can create them. */
-  protected readonly maxPending: number = 100_000;
-
   constructor(
     private readonly prismaService: PrismaService,
-    storage: AuthenticationStorage,
   ) {
-    storage.registerSource({
-      sessions: this,
-      magicLinks: this,
+  }
+  async createSession(record: { userId: string, id: string, expiresAt: Date, lastActiveAt: Date }): Promise<void> {
+    await this.prismaService.session.create({
+        data: record,
     });
   }
-
-  // Sessions
-
-  async getSession(id: string): Promise<SessionRecord | undefined> {
-    const row = await this.prismaService.session.findUnique({ where: { id } });
-    return row ? withoutNulls(row) as SessionRecord : undefined;
-  }
-
-  async createSession(record: SessionRecord): Promise<void> {
-    await this.prismaService.session.create({ data: {...record, metadata: record.metadata as Prisma.InputJsonObject, ...(record.mfa ? {mfa: record.mfa} : {}) } });
-    await this.prismaService.session.deleteMany({ where: { expiresAt: { lte: record.createdAt } } });
-  }
-
-  async touchSession(id: string, lastActiveAt: Date): Promise<void> {
-    // Conditional: a session deleted by a sign-out stays deleted.
-    await this.prismaService.session.updateMany({
-      where: { id, lastActiveAt: { lt: lastActiveAt } },
-      data: { lastActiveAt },
+  async findSession(id: string): Promise<{ userId: string, id: string, expiresAt: Date, lastActiveAt: Date } | null> {
+    return this.prismaService.session.findUnique({
+        where: { id },
     });
   }
-
-  // Whether this call deleted it: of two rotations of a session, or a rotation and a sign-out, one wins.
-  async deleteSession(id: string): Promise<boolean> {
-    const { count } = await this.prismaService.session.deleteMany(
-        {
-          where: { id }
-        }
-    )
-    return count > 0;
+  async updateSession(id: string, data: { expiresAt: Date, lastActiveAt: Date }): Promise<void> {
+    await this.prismaService.session.update({
+        where: { id },
+        data,
+    });
   }
-
-  async listUserSessions(userId: string): Promise<SessionRecord[]> {
-    const rows = await this.prismaService.session.findMany({
-        where: {
-            userId: userId
-        }
-    })
-    return rows.map(row => withoutNulls(row) as SessionRecord);
+  async findSessionsByUserId(userId: string): Promise<{ userId: string, id: string, expiresAt: Date, lastActiveAt: Date }[]> {
+    return this.prismaService.session.findMany({
+        where: { userId },
+    });
   }
-
-  async deleteUserSessions(userId: string): Promise<void> {
-    await this.prismaService.session.deleteMany({ where: { userId } });
+  async deleteSession(params: { where: { id: string } }): Promise<void> {
+    await this.prismaService.session.delete(params);
   }
-
   // Magic links
-  async saveMagicLink(record: MagicLinkRecord): Promise<void> {
+  async saveMagicLink(record: { id: string, expiresAt: Date, email: string }): Promise<void> {
     await this.prismaService.magicLink.create({
         data: record,
     });
-    await this.trim(record.createdAt);
   }
 
-  async consumeMagicLink(id: string): Promise<MagicLinkRecord | undefined> {
-    // DELETE … RETURNING: of two requests with the same link, one gets the row.
+  async consumeMagicLink(id: string): Promise<MagicLink | undefined> {
     try {
         const row = await this.prismaService.magicLink.delete({
             where: { id },
         })
-        return withoutNulls(row);
+        return row;
     } catch (e) {
-        if (e instanceof Prisma.PrismaClientKnownRequestError && (e as Prisma.PrismaClientKnownRequestError).code === 'P2025') {
+        if (e instanceof Prisma.PrismaClientKnownRequestError && e.code === 'P2025') {
             return undefined;
         }
         throw e;
     }
   }
-
-  /** Deletes what expired, and past `maxPending`, what expires first. */
-  private async trim(now: Date) {
-    await this.prismaService.magicLink.deleteMany({
-        where: { expiresAt: { lte: now } }
-    })
-    const [cutoff] = await this.prismaService.magicLink.findMany({
-        orderBy: { expiresAt: 'desc' },
-        take: 1,
-        skip: this.maxPending,
-    });
-    if (cutoff) {
-      await this.prismaService.magicLink.deleteMany({
-          where: { expiresAt: { lte: cutoff.expiresAt } }
-      });
-    }
-  }
-}
-
-/** A row without its NULL columns: the package's records leave optional fields out. */
-type WithoutNulls<T> = { [K in keyof T as null extends T[K] ? never : K]: T[K] } & {
-  [K in keyof T as null extends T[K] ? K : never]?: Exclude<T[K], null>;
-};
-
-function withoutNulls<T extends object>(row: T): WithoutNulls<T> {
-  return Object.fromEntries(Object.entries(row).filter(([, value]) => value !== null)) as WithoutNulls<T>;
 }

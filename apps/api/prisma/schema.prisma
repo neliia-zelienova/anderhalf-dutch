@@ -90,7 +90,7 @@ model Session {
 }
 
 model MagicLink {
-  id            String   @id @default(uuid())
+  id            String   @id
   email         String
   createdAt     DateTime @default(now())
   expiresAt     DateTime @default(now())
