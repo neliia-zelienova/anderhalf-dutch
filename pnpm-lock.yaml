@@ -265,7 +265,7 @@ importers:
         specifier: ^12.0.0
         version: 12.0.12(chokidar@5.0.0)(prettier@3.9.10)(typescript@6.0.3)
       '@nestjs/testing':
-        specifier: ^12.0.1
+        specifier: ^12.3.3
         version: 12.3.3(@nestjs/common@12.3.3(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@7.2.0))(@nestjs/core@12.3.3)(@nestjs/platform-express@12.3.3)
       '@types/express':
         specifier: ^5.0.0
@@ -310,7 +310,7 @@ importers:
         specifier: ^8.0.0
         version: 8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.15)(yaml@2.9.1)
       vitest:
-        specifier: ^4.1.2
+        specifier: ^4.1.12
         version: 4.1.12(@types/node@24.19.2)(@vitest/coverage-v8@4.1.12)(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.15)(yaml@2.9.1))
 
   apps/ui:
