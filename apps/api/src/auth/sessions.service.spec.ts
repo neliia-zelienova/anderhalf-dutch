@@ -26,7 +26,6 @@ describe('SessionsService', () => {
   });
 
   afterEach(() => {
-    vi.resetAllMocks();
     vi.useRealTimers();
   })
 
