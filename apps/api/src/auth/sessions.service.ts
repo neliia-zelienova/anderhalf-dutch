@@ -1,20 +1,20 @@
 import { Injectable } from '@nestjs/common';
 import { generateToken, hashToken } from './token.utils.ts';
 import { SESSION_TTL } from '../constants/auth.constants.ts';
-import { PrismaAuthenticationStore } from './prisma-auth.ts';
+import { AuthRepository } from './auth-repository.ts';
 
 const SESSION_TOUCH_INTERVAL = 60 * 60 * 1000; // one hour in milliseconds
 
 @Injectable()
 export class SessionsService {
-    constructor(private readonly prismaAuth: PrismaAuthenticationStore) {}
+    constructor(private readonly authRepository: AuthRepository) {}
     async create(userId: string) {
         const token = generateToken();
         const hash = hashToken(token);
-        await this.prismaAuth.createSession({
+        await this.authRepository.createSession({
             userId,
             id: hash,
-            expiresAt: new Date(Date.now() + 1000 * SESSION_TTL), // 1 day from now
+            expiresAt: new Date(Date.now() + 1000 * SESSION_TTL),
             lastActiveAt: new Date()
         });
         return token;
@@ -22,14 +22,14 @@ export class SessionsService {
 
     async findValid(token: string): Promise<{ session: { userId: string, id: string, expiresAt: Date, lastActiveAt: Date }, extended: boolean } | null>  {
         const hash = hashToken(token);
-        const session = await this.prismaAuth.findSession(hash);
+        const session = await this.authRepository.findSession(hash);
         if (!session || session.expiresAt < new Date()) {
             return null;
         }
         if (new Date().getTime() - session.lastActiveAt.getTime() < SESSION_TOUCH_INTERVAL) {
             return { session, extended: false };
         }
-        await this.prismaAuth.updateSession(hash,
+        await this.authRepository.updateSession(hash,
             {
                 expiresAt: new Date(Date.now() + 1000 * SESSION_TTL), // extend session expiration
                 lastActiveAt: new Date()
@@ -39,15 +39,11 @@ export class SessionsService {
     }
 
     async findByUserId(userId: string) {
-        return this.prismaAuth.findSessionsByUserId(userId);
+        return this.authRepository.findSessionsByUserId(userId);
     }
 
     async delete(token: string) {
         const hash = hashToken(token);
-        await this.prismaAuth.deleteSession({
-            where: {
-                id: hash
-            }
-        });
+        await this.authRepository.deleteSession(hash);
     }
 }

@@ -4,7 +4,7 @@ import { PrismaService } from '../prisma/prisma.service.ts';
 import { Prisma, MagicLink } from '../generated/client.ts';
 
 @Injectable()
-export class PrismaAuthenticationStore
+export class AuthRepository
 {
   constructor(
     private readonly prismaService: PrismaService,
@@ -31,8 +31,10 @@ export class PrismaAuthenticationStore
         where: { userId },
     });
   }
-  async deleteSession(params: { where: { id: string } }): Promise<void> {
-    await this.prismaService.session.delete(params);
+  async deleteSession(id: string): Promise<void> {
+    await this.prismaService.session.deleteMany({
+        where: { id }
+    });
   }
   // Magic links
   async saveMagicLink(record: { id: string, expiresAt: Date, email: string }): Promise<void> {

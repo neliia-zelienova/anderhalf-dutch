@@ -1,7 +1,7 @@
 import { Injectable, CanActivate, ExecutionContext, UnauthorizedException } from '@nestjs/common';
 import { SessionsService } from './sessions.service.ts';
 import { UsersRepository } from '../users/users.repository.ts';
-import { HttpAdapterHost } from '@nestjs/core/helpers/index.js';
+import { HttpAdapterHost } from '@nestjs/core';
 import { SESSION_COOKIE_OPTIONS, SESSION_TTL } from '../constants/auth.constants.ts';
 
 @Injectable()
@@ -29,7 +29,8 @@ export class SessionsGuard implements CanActivate {
       }
       request.user = user;
       if (validSession.extended) {
-        this.adapterHost.httpAdapter.setCookie(request.res, 'session', sessionToken, {
+        const response = context.switchToHttp().getResponse();
+        this.adapterHost.httpAdapter.setCookie(response, 'session', sessionToken, {
           ...SESSION_COOKIE_OPTIONS,
           maxAge: SESSION_TTL
         });
