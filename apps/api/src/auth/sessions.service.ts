@@ -38,10 +38,6 @@ export class SessionsService {
         return { session, extended: true};
     }
 
-    async findByUserId(userId: string) {
-        return this.authRepository.findSessionsByUserId(userId);
-    }
-
     async delete(token: string) {
         const hash = hashToken(token);
         await this.authRepository.deleteSession(hash);
