@@ -1,21 +1,30 @@
-import { CurrentUser, Public, SignInService } from "@nestjs/authentication";
-import type { User } from '@anderhalf/contracts/user';
-import { Controller, HttpCode, Post } from "@nestjs/common";
+import { Controller, HttpCode, Post, Res, Get, UseGuards, Cookies } from "@nestjs/common";
+import { SESSION_COOKIE_OPTIONS } from "../constants/auth.constants.ts";
+import { SessionsGuard } from "./sessions.guard.ts";
+import { SignInService } from "./sign-in.service.ts";
+import { HttpAdapterHost } from "@nestjs/core";
+import { CurrentUser } from "./current-user.decorator.ts";
+import type { User } from "@anderhalf/contracts/user";
+import type { Response } from 'express';
 
 @Controller('auth')
 export class AuthController {
-    constructor(private readonly signInService: SignInService) {}
-    
-    @Post('logout')
-    @HttpCode(204)
-    @Public()
-    async logout() {
-        await this.signInService.signOut();
+    constructor(
+        private readonly adapterHost: HttpAdapterHost,
+        private readonly signInService: SignInService) {}
+
+    @Get('me')
+    @UseGuards(SessionsGuard)
+    async getMe(@CurrentUser() user: User) {
+        return user;
     }
 
-    @Post('logout-all')
+    @Post('logout')
     @HttpCode(204)
-    async logoutAll(@CurrentUser() user: User) {
-        await this.signInService.signOutEverywhere(user.id);
+    async logout(@Res({ passthrough: true }) res: Response, @Cookies('session') session: string) {
+        if (session) {
+            await this.signInService.logout(session);
+        }
+        this.adapterHost.httpAdapter.clearCookie(res, 'session', SESSION_COOKIE_OPTIONS);
     }
 }
