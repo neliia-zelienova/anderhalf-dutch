@@ -37,9 +37,9 @@ export class AuthRepository
     });
   }
   // Magic links
-  async saveMagicLink(record: { id: string, expiresAt: Date, email: string }): Promise<void> {
+  async saveMagicLink(id: string,  email: string, expiresAt: Date): Promise<void> {
     await this.prismaService.magicLink.create({
-        data: record,
+        data: { id, email, expiresAt },
     });
   }
 
