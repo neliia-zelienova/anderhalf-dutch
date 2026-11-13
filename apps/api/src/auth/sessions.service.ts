@@ -2,9 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { generateToken, hashToken } from './token.utils.ts';
 import { SESSION_TTL } from '../constants/auth.constants.ts';
 import { AuthRepository } from './auth-repository.ts';
-
-const SESSION_TOUCH_INTERVAL = 60 * 60 * 1000; // one hour in milliseconds
-
+import { SESSION_TOUCH_INTERVAL } from '../constants/auth.constants.ts';
 @Injectable()
 export class SessionsService {
     constructor(private readonly authRepository: AuthRepository) {}

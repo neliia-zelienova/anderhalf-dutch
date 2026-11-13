@@ -5,3 +5,4 @@ export const SESSION_COOKIE_OPTIONS = {
     secure: true,
     sameSite: 'lax' as "lax" | "strict" | "none",
 }
+export const SESSION_TOUCH_INTERVAL = 60 * 60 * 1000; // one hour in milliseconds
