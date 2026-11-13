@@ -12,7 +12,7 @@ export class SignInService {
     ) {
     }
 
-    async signIn(email: string, emailVerified?: boolean) {
+    private async signIn(email: string, emailVerified?: boolean) {
         let user = await this.usersRepository.findByEmail(email);
         if (!user) {
             // Create a new user if not found
