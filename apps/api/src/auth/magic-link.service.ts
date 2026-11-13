@@ -14,11 +14,11 @@ export class MagicLinkService {
     async sendMagicLink(email: string): Promise<void> {
         const token = generateToken();
         const hash = hashToken(token);
-        await this.authRepository.saveMagicLink({ 
+        await this.authRepository.saveMagicLink(
+            hash,
             email,
-            id: hash,
-            expiresAt: new Date(Date.now() + MAGIC_LINK_TTL * 1000)
-        });
+            new Date(Date.now() + MAGIC_LINK_TTL * 1000),
+        );
         console.log(`${this.configService.get('APP_URL')}/sign-in/magic?token=${token}`);
     }
 
