@@ -5,8 +5,18 @@ import { AppService } from './app.service.ts';
 import { UsersModule } from './users/users.module.ts';
 import { AuthModule } from './auth/auth.module.ts';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { FileTemplateEngine, LogMailTransport, MailModule, SmtpTransport } from '@nestjs/mail';
-import { ThrottlerGuard, ThrottlerModule, minutes, normalizeIp } from '@nestjs/throttler';
+import {
+  FileTemplateEngine,
+  LogMailTransport,
+  MailModule,
+  SmtpTransport,
+} from '@nestjs/mail';
+import {
+  ThrottlerGuard,
+  ThrottlerModule,
+  minutes,
+  normalizeIp,
+} from '@nestjs/throttler';
 import { accountEmail } from './auth/account-email.ts';
 import { join } from 'node:path';
 
@@ -25,13 +35,17 @@ import { join } from 'node:path';
         getTracker: (req) => `${accountEmail(req)}|${normalizeIp(req.ip)}`,
       },
     ]),
-     MailModule.forRootAsync({
+    MailModule.forRootAsync({
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
         // In development, each email (links included) is printed to the log.
-        transport: configService.get('SMTP_URL') ? new SmtpTransport({ url: configService.get('SMTP_URL') }) : new LogMailTransport(),
+        transport: configService.get('SMTP_URL')
+          ? new SmtpTransport({ url: configService.get('SMTP_URL') })
+          : new LogMailTransport(),
         // The emails' HTML: the templates in mail/templates, next to this file
-        templates: new FileTemplateEngine({ dir: join(import.meta.dirname, 'mail/templates') }),
+        templates: new FileTemplateEngine({
+          dir: join(import.meta.dirname, 'mail/templates'),
+        }),
         from: 'Accounts <accounts@anderhalf.com>',
       }),
     }),
@@ -39,6 +53,6 @@ import { join } from 'node:path';
     AuthModule,
   ],
   controllers: [AppController],
-  providers: [AppService, { provide: APP_GUARD, useClass: ThrottlerGuard },],
+  providers: [AppService, { provide: APP_GUARD, useClass: ThrottlerGuard }],
 })
 export class AppModule {}
