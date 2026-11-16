@@ -19,6 +19,7 @@ import {
 } from '@nestjs/throttler';
 import { accountEmail } from './auth/account-email.ts';
 import { join } from 'node:path';
+import { WordsModule } from './words/words.module.ts';
 
 @Module({
   imports: [
@@ -51,6 +52,7 @@ import { join } from 'node:path';
     }),
     UsersModule,
     AuthModule,
+    WordsModule,
   ],
   controllers: [AppController],
   providers: [AppService, { provide: APP_GUARD, useClass: ThrottlerGuard }],
