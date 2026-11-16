@@ -12,18 +12,8 @@ export class PaginationQueryDto implements PaginateOptions {
   @IsNumber()
   @IsOptional()
   @IsPositive()
-  @Min(10)
+  @Min(1)
   @Max(100)
   @Transform(({ value }) => parseInt(value, 10))
   perPage?: number;
-    
-  @IsOptional()
-  @IsPositive()
-  @Transform(({ value }) => parseInt(value, 10))
-  limit?: number;
-
-  @IsOptional()
-  @Min(0)
-  @Transform(({ value }) => parseInt(value, 10))
-  offset?: number;
 }

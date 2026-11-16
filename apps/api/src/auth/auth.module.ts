@@ -12,6 +12,6 @@ import { SessionsService } from './sessions.service.ts';
   imports: [UsersModule, PrismaModule],
   controllers: [AuthController, MagicLinkController],
   providers: [AuthRepository, SignInService, MagicLinkService, SessionsService],
-  exports: [SessionsService]
+  exports: [SessionsService, UsersModule]
 })
 export class AuthModule {}

@@ -1,5 +1,5 @@
 import type { PaginateOptions } from '@anderhalf/contracts/pagination';
-import { SortBy, SortOrder } from './types';
+import { SortBy, SortOrder } from './types.ts';
 
 export const parsePaginateOptions = (
     options: PaginateOptions,

@@ -16,10 +16,8 @@ export interface PaginatedResult<T> {
 }
 
 export interface PaginateOptions {
-    page?: number | string;
-    perPage?: number | string;
-    limit?: number;
-    offset?: number;
+    page?: number;
+    perPage?: number;
 }
 
 export interface SortingOptions {
