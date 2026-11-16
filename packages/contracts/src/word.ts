@@ -55,3 +55,7 @@ export interface UserWord {
     translation: string;
     createdAt: Date;
 }
+
+export enum WordSortBy {
+    title = 'title',
+}
