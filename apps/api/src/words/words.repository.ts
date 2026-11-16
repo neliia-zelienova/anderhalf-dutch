@@ -1,20 +1,26 @@
 import { Injectable } from "@nestjs/common";
 import { PrismaService } from '../prisma/prisma.service.ts';
-import { PaginationQueryDto } from '../common/pagination/dto/pagination-query.dto.ts';
 import { parsePaginateOptions, generateMeta } from '../common/pagination/utils.ts';
-import { Language, WordSortBy } from "@anderhalf/contracts/word";
-import { WordSortingQueryDto } from "./dto/sort-query.dto.ts";
+import { Language } from "@anderhalf/contracts/word";
 import { Order } from "@anderhalf/contracts/pagination";
-
+import { Prisma } from "../generated/client.ts";
+import { GlobalWordsQueryDto } from "./dto/user-words-query.dto.ts";
 @Injectable()
 export class WordsRepository {
 
     constructor(private readonly prismaService: PrismaService){}
 
-    async getWords(translationLanguage: Language, pagination: PaginationQueryDto, sortQuery: WordSortingQueryDto) {
-        const { page, perPage, skip } = parsePaginateOptions(pagination);
-        const where = {
+    async getWords(translationLanguage: Language, query: GlobalWordsQueryDto) {
+        const { page, perPage, skip } = parsePaginateOptions(query);
+        const term = query.search?.trim();
+        const where: Prisma.WordWhereInput = {
             ownerId: null,
+            ...(term ? {
+                title: {
+                    contains: term,
+                    mode: 'insensitive'
+                }
+            } : {})
         };
         const [words, count] = await this.prismaService.$transaction([
             this.prismaService.word.findMany({
@@ -23,7 +29,7 @@ export class WordsRepository {
                 take: perPage,
                 orderBy: [
                     {
-                        [sortQuery.sortBy ?? 'title']: sortQuery.order ?? Order.asc,
+                        [query.sortBy ?? 'title']: query.order ?? Order.asc,
                     },
                     {
                         id: Order.asc

@@ -4,3 +4,4 @@
 - does the magic link login should be bind to the browser (login CSRF)
 - email change functionality (with pendingEmail field)
 - ConfigModule.forRoot -> validate
+- user word status update (new, learning, review, relearning)

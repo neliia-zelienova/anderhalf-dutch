@@ -1,11 +1,10 @@
 import { ConflictException, Injectable } from '@nestjs/common';
-import type { WordSortingQueryDto } from './dto/sort-query.dto.ts';
+import type { UserWordsQueryDto } from './dto/user-words-query.dto.ts';
 import { PrismaService } from '../prisma/prisma.service.ts';
-import { PaginationQueryDto } from '../common/pagination/dto/pagination-query.dto.ts';
 import { parsePaginateOptions, generateMeta } from '../common/pagination/utils.ts';
 import { Prisma } from '../generated/client.ts';
 import { CardState } from '../common/words/types/card-state.ts';
-import { WordSortBy, type Language } from '@anderhalf/contracts/word';
+import type { Language } from '@anderhalf/contracts/word';
 import { Order } from '@anderhalf/contracts/pagination';
 
 @Injectable()
@@ -14,11 +13,24 @@ export class UserWordsRepository {
         private readonly prismaService: PrismaService,
     ) {}
 
-    async getUserWords(userId: string, userLanguage: Language, pagination: PaginationQueryDto, sortQuery: WordSortingQueryDto) {
-        const { page, perPage, skip } = parsePaginateOptions(pagination);
-        const where = {
+    async getUserWords(userId: string, userLanguage: Language, query: UserWordsQueryDto) {
+        const { page, perPage, skip } = parsePaginateOptions(query);
+        const { search, status, addedFrom, addedTo } = query;
+        const trimSearch = search?.trim();
+        const where: Prisma.UserWordWhereInput = {
             userId,
-        }; 
+            word: {
+                title: trimSearch ? {
+                    contains: trimSearch,
+                    mode: 'insensitive'
+                } : undefined,
+            },
+            createdAt: {
+                gte: addedFrom,
+                lte: addedTo
+            },
+            state: status,
+        };
         const [words, count] = await this.prismaService.$transaction([
             this.prismaService.userWord.findMany({
                 where,
@@ -26,7 +38,7 @@ export class UserWordsRepository {
                 take: perPage,
                 orderBy: [{
                     word: {
-                        [sortQuery.sortBy ?? 'title']: sortQuery.order ?? Order.asc,
+                        [query.sortBy ?? 'title']: query.order ?? Order.asc,
                     },
                     },
                     {id: Order.asc}

@@ -1,7 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import type { User } from '@anderhalf/contracts/user';
-import { PaginationQueryDto } from '../common/pagination/dto/pagination-query.dto.ts';
-import type { WordSortingQueryDto } from './dto/sort-query.dto.ts';
+import type { GlobalWordsQueryDto, UserWordsQueryDto } from './dto/user-words-query.dto.ts';
 import { UserWordsRepository } from './user-words.repository.ts';
 import { CardState } from '../common/words/types/card-state.ts';
 import { FsrsService } from '../fsrs/fsrs.service.ts';
@@ -16,12 +15,12 @@ export class WordsService {
         private readonly fsrsService: FsrsService,
     ) {}
 
-    async getGlobalWords(translationLanguage: Language, pagination: PaginationQueryDto, sortQuery: WordSortingQueryDto) {
-        return await this.wordsRepository.getWords(translationLanguage, pagination, sortQuery);
+    async getGlobalWords(translationLanguage: Language, query: GlobalWordsQueryDto) {
+        return await this.wordsRepository.getWords(translationLanguage, query);
     }
 
-    async getUserWords(user: User, pagination: PaginationQueryDto, sortQuery: WordSortingQueryDto) {
-        return await this.userWordsRepository.getUserWords(user.id, user.language, pagination, sortQuery);
+    async getUserWords(user: User, query: UserWordsQueryDto) {
+        return await this.userWordsRepository.getUserWords(user.id, user.language, query);
     }
 
     async addWordFromGlobalList(userId: string, wordId: string) {
