@@ -1,4 +1,4 @@
-import { IsEnum, IsOptional, IsString } from 'class-validator';
+import { IsEnum, IsOptional } from 'class-validator';
 import { SortingQueryDto } from '../../common/pagination/dto/sorting-query.dto.ts';
 import { WordSortBy } from '@anderhalf/contracts/word';
 

@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  build:
+    name: checks
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v6
+
+      - name: Install pnpm and Node.js
+        uses: pnpm/setup@fa36a5ef7dcdefc3a7cb25655c122e00cf6e636e # v3.1.2
+        with:
+          runtime: node@24
+          cache: true
+          require-lockfile: true
+      
+      - name: Lint
+        run: pnpm lint
+
+      - name: Build
+        run: pnpm build
+
+      - name: Test
+        run: pnpm test
