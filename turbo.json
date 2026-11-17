@@ -8,7 +8,7 @@
       "outputs": [".next/**", "!.next/cache/**", "!.next/dev/**", "dist/**"]
     },
     "test": {
-      "outputs": ["coverage/**"],
+      "outputs": [],
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"]
     },
