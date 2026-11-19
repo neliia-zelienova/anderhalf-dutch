@@ -149,3 +149,9 @@ vite.config.ts.timestamp-*
 .turbo
 
 .vscode
+
+# Terraform files
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
