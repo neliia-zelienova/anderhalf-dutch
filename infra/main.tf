@@ -28,11 +28,27 @@ resource "google_project_service" "services" {
 }
 
 resource "google_artifact_registry_repository" "anderhalf" {
-  depends_on    = [google_project_service.services]
-  location      = var.region
-  repository_id = "anderhalf"
-  description   = "Docker repository for anderhalf"
-  format        = "DOCKER"
+  depends_on             = [google_project_service.services]
+  location               = var.region
+  repository_id          = "anderhalf"
+  description            = "Docker repository for anderhalf"
+  format                 = "DOCKER"
+  cleanup_policy_dry_run = false
+  cleanup_policies {
+    id     = "delete-all"
+    action = "DELETE"
+    condition {
+      tag_state = "ANY"
+    }
+  }
+
+  cleanup_policies {
+    id     = "keep-last-2"
+    action = "KEEP"
+    most_recent_versions {
+      keep_count = 2
+    }
+  }
 }
 
 
