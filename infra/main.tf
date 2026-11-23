@@ -17,7 +17,7 @@ provider "google" {
 }
 
 locals {
-  services = toset(["artifactregistry.googleapis.com", "secretmanager.googleapis.com", "run.googleapis.com"])
+  services = toset(["artifactregistry.googleapis.com", "secretmanager.googleapis.com", "run.googleapis.com", "iamcredentials.googleapis.com", "sts.googleapis.com"])
 }
 
 resource "google_project_service" "services" {
@@ -85,6 +85,10 @@ resource "google_cloud_run_v2_service" "api" {
     }
   }
 
+  lifecycle {
+    ignore_changes = [template[0].containers[0].image, client, client_version]
+  }
+
   depends_on = [google_project_service.services, google_secret_manager_secret_iam_member.db_url_accessor]
 }
 
@@ -94,4 +98,66 @@ resource "google_cloud_run_v2_service_iam_member" "api_public" {
   name     = google_cloud_run_v2_service.api.name
   role     = "roles/run.invoker"
   member   = "allUsers"
+}
+
+resource "google_iam_workload_identity_pool" "github_actions_pool" {
+  workload_identity_pool_id = "github-actions-pool"
+  display_name              = "GitHub Actions Pool"
+  description               = "GitHub Actions identity pool for Anderhalf project"
+}
+
+resource "google_iam_workload_identity_pool_provider" "github" {
+  workload_identity_pool_id          = google_iam_workload_identity_pool.github_actions_pool.workload_identity_pool_id
+  workload_identity_pool_provider_id = "github"
+  display_name                       = "GitHub Actions Provider"
+  description                        = "GitHub Actions identity pool provider for CI/CD"
+  attribute_condition                = <<EOT
+    assertion.repository_owner_id == "66479463" &&
+    assertion.repository == "neliia-zelienova/anderhalf-dutch" &&
+    assertion.ref == "refs/heads/main" &&
+    assertion.ref_type == "branch"
+EOT
+  attribute_mapping = {
+    "google.subject"       = "assertion.sub"
+    "attribute.actor"      = "assertion.actor"
+    "attribute.aud"        = "assertion.aud"
+    "attribute.repository" = "assertion.repository"
+  }
+  oidc {
+    issuer_uri = "https://token.actions.githubusercontent.com"
+  }
+}
+
+resource "google_service_account" "github_actions" {
+  account_id   = "github-actions"
+  display_name = "GitHub Actions Service Account"
+  project      = var.project
+}
+
+resource "google_artifact_registry_repository_iam_member" "github_actions_registry_writer" {
+  project    = google_artifact_registry_repository.anderhalf.project
+  location   = google_artifact_registry_repository.anderhalf.location
+  repository = google_artifact_registry_repository.anderhalf.name
+  role       = "roles/artifactregistry.writer"
+  member     = "serviceAccount:${google_service_account.github_actions.email}"
+}
+
+resource "google_cloud_run_v2_service_iam_member" "github_actions_run_developer" {
+  project  = google_cloud_run_v2_service.api.project
+  location = google_cloud_run_v2_service.api.location
+  name     = google_cloud_run_v2_service.api.name
+  role     = "roles/run.developer"
+  member   = "serviceAccount:${google_service_account.github_actions.email}"
+}
+
+resource "google_service_account_iam_member" "github_actions_act_as_runtime" {
+  service_account_id = google_service_account.api_runtime.name
+  role               = "roles/iam.serviceAccountUser"
+  member             = "serviceAccount:${google_service_account.github_actions.email}"
+}
+
+resource "google_service_account_iam_member" "github_actions_workload_identity_user" {
+  service_account_id = google_service_account.github_actions.name
+  role               = "roles/iam.workloadIdentityUser"
+  member             = "principalSet://iam.googleapis.com/${google_iam_workload_identity_pool.github_actions_pool.name}/attribute.repository/neliia-zelienova/anderhalf-dutch"
 }
