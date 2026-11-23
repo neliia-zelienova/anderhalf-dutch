@@ -31,3 +31,43 @@ jobs:
 
       - name: Test
         run: pnpm test
+  
+  deploy:
+    needs: build
+    env:
+      GCP_REGION: europe-west4
+      DOCKER_TAG: europe-west4-docker.pkg.dev/anderhalf/anderhalf/api:${{ github.sha }}
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    permissions: 
+      id-token: write
+      contents: read
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v6
+      - id: 'auth'
+        name: 'Authenticate to GCP'
+        uses: 'google-github-actions/auth@v3.0.0'
+        with:
+          create_credentials_file: 'true'
+          workload_identity_provider: 'projects/586059887696/locations/global/workloadIdentityPools/github-actions-pool/providers/github'
+          service_account: 'github-actions@anderhalf.iam.gserviceaccount.com'
+      - name: Set up gcloud
+        uses:  google-github-actions/setup-gcloud@v3.0.1
+      - id: 'gcloud'
+        name: 'gcloud'
+        run: |-
+          gcloud services list
+          gcloud auth configure-docker europe-west4-docker.pkg.dev --quiet
+      - id: 'docker-build'
+        name: 'Build Docker image'
+        run: |-
+          docker build --target api -t ${{ env.DOCKER_TAG }} .
+      - id: 'docker-push'
+        name: 'Push Docker image'
+        run: |-
+          docker push ${{ env.DOCKER_TAG }}
+      - id: 'deploy-image'
+        name: 'Deploy to Cloud Run'
+        run: |-
+          gcloud run deploy api --image ${{ env.DOCKER_TAG }} --region ${{ env.GCP_REGION }}
