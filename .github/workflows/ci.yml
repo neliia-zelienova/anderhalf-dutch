@@ -59,7 +59,7 @@ jobs:
         run: gcloud auth configure-docker europe-west4-docker.pkg.dev --quiet
       - id: 'docker-build'
         name: 'Build Docker image'
-        run: docker build --target api -t ${{ env.DOCKER_TAG }} .
+        run: docker build --target api --provenance=false -t ${{ env.DOCKER_TAG }} .
       - id: 'docker-push'
         name: 'Push Docker image'
         run: docker push ${{ env.DOCKER_TAG }}
